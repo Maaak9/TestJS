@@ -1,3 +1,6 @@
+
+console.log('blablablalbalblalb');
+
 const test = document.querySelectorAll('[data-type="virtual-form-table-row"');
 
 test.forEach((row, index) => {
