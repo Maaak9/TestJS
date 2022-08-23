@@ -1,11 +1,11 @@
 console.log("aaabbbbccc");
 
-let test = document.querySelectorAll('[data-type="virtual-form-table-row"');
+var test = document.querySelectorAll('[data-type="virtual-form-table-row"');
 
 test.forEach((row, index) => {
     console.log("1111", row);
 
-    let inputs = row.querySelectorAll("input");
+    var inputs = row.querySelectorAll("input");
 
      
     inputs.forEach((input) => {
