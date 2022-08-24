@@ -1,0 +1,34 @@
+console.log("aaabbbbccc");
+
+document.addEventListener("DOMContentLoaded", function(){
+  console.log("DOMContentLoaded triggered")
+  var rows = document.querySelectorAll('[data-type="virtual-form-table-row"');
+  var rowsWithInput = rows.map((row) => row.querySelectorAll("input, textarea, select"));
+  // Filter out rows that don't have input, textarea, select
+  rowsWithInput = rowsWithInput.filter((inputs) => inputs.length > 0);
+
+  console.log('rowsWithInput', rowsWithInput)
+
+  rowsWithInput.forEach((inputs, index) => {
+    console.log("1111", inputs);
+      
+    inputs.forEach((input) => {
+      console.log('5555', input);
+      
+      input.addEventListener("focus", (event) => {
+        console.log('Change on input in', index, input);
+
+        if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "formEnterProgress",
+              formInfo: {
+                name: "testForm",
+                step: index,
+              },
+            });
+        }
+      });
+    })
+  });
+});
+
